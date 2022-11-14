@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { favorisController } = require ( '../controllers/favoris.controllers' );
+const favorisController = require ( '../controllers/favoris.controllers' );
 
 router.get('/', favorisController.getFavoris);
 router.get('/:id', favorisController.getFavorisById);
