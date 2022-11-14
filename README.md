@@ -4,7 +4,7 @@
   &#xa0;
 </div>
 
-<h1 align="center">Api_netflix_wish</h1>
+<h1 align="center">Api_netWish</h1>
 
 <p align="center">
   <!-- <img alt="Github top language" src="https://img.shields.io/github/languages/top/{{YOUR_GITHUB_USERNAME}}/api_netflix_wish?color=56BEB8"> -->
@@ -13,7 +13,7 @@
 </p>
 
  <h4 align="center">
-	🚧  Api_netflix_wish 🚀 Under construction...  🚧
+	🚧  Api_netWish 🚀 Under construction...  🚧
 </h4><hr>
 
 <p align="center">
