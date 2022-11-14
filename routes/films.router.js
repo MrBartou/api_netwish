@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { filmsController } = require ( '../controllers' );
+const { filmsController } = require ( '../controllers/film.controllers' );
 
 router.get('/', filmsController.getFilms);
 

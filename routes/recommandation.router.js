@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const { recommandationController } = require('../controllers');
+const { recommandationController } = require('../controllers/recommandation.controllers');
 
 router.get('/', recommandationController.getRecommandation);
 

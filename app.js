@@ -1,10 +1,10 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const usersRoutes = require("./routes/users");
-const favorisRoutes = require("./routes/favoris");
-const filmsRoutes = require("./routes/films");
-const recommandationsRoutes = require("./routes/recommandations");
-const seriesRoutes = require("./routes/series");
+// const usersRoutes = require("./routes/users.router");
+// const favorisRoutes = require("./routes/favoris.router");
+// const filmsRoutes = require("./routes/films.router");
+// const recommandationsRoutes = require("./routes/recommandations.router");
+// const seriesRoutes = require("./routes/series.router");
 const app = express();
 app.use(bodyParser.json());
 
