@@ -30,26 +30,27 @@
 
 ## :dart: About ##
 
-Describe your project
+API de recomendation de films et de séries, basé sur les sorties en Salle et sur les meilleurs notes sur TMDB.
 
 ## :sparkles: Features ##
 
-:heavy_check_mark: Feature 1;\
-:heavy_check_mark: Feature 2;\
-:heavy_check_mark: Feature 3;
+:heavy_check_mark: Possibilité de créer un compte;\
+:heavy_check_mark: Listing de 10 films et 10 séries en rapport avec les dernières sorties;\
+:heavy_check_mark: Recommendation des 30 meilleurs films et séries;\
 
 ## :rocket: Technologies ##
 
 The following tools were used in this project:
 
-- [Node.JS](https://expo.io/)
-- [Express](https://nodejs.org/en/)
-- [Redis](https://pt-br.reactjs.org/)
-- [Axios](https://reactnative.dev/)
-- [Jest](https://www.typescriptlang.org/)
-- [Super-Test](https://www.typescriptlang.org/)
-- [Sequelize](https://www.typescriptlang.org/)
-- [JWT](https://www.typescriptlang.org/)
+- [Node.JS](https://nodejs.org/en/)
+- [Express](https://expressjs.com/)
+- [OpenAPI](https://www.openapis.org/)
+- [Redis](https://redis.io/)
+- [Axios](https://axios-http.com/fr/docs/intro)
+- [Jest](https://jestjs.io/fr/)
+- [Super-Test](https://www.npmjs.com/package/supertest)
+- [Sequelize](https://sequelize.org/)
+- [JWT](https://jwt.io/)
 
 ## :white_check_mark: Requirements ##
 
@@ -59,7 +60,7 @@ Before starting :checkered_flag:, you need to have [Git](https://git-scm.com) an
 
 ```bash
 # Clone this project
-$ git clone https://github.com/{{YOUR_GITHUB_USERNAME}}/api_netflix_wish
+$ git clone https://github.com/MrBartou/api_netflix_wish
 
 # Access
 $ cd api_netflix_wish
@@ -81,7 +82,7 @@ $ npm run test
 This project is under license from MIT. For more details, see the [LICENSE](LICENSE.md) file.
 
 
-Made with :heart: by <a href="https://github.com/{{YOUR_GITHUB_USERNAME}}" target="_blank">Philippe VILARINHO, Maceo BASSE, Anthony DENIN</a>
+Made with :heart: by <a href="" target="_blank">Philippe VILARINHO, Maceo BASSE, Anthony DENIN</a>
 
 &#xa0;
 
