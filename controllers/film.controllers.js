@@ -1,4 +1,4 @@
-const filmsServices = require('../services/film.services');
+const filmsServices = require('../services/films.service');
 
 async function getFilms(req, res) {
   const films = await filmsServices.getFilms();
