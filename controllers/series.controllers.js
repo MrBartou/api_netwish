@@ -1,4 +1,4 @@
-const seriesServices = require('../services/series.services');
+const seriesServices = require('../services/series.service');
 const client = require('../redis');
 
 async function getSeries(req, res) {
@@ -10,7 +10,7 @@ async function getSeries(req, res) {
     }
     else {
         const series = await seriesServices.getSeries();
-    
+
         if (series) {
         await client.set('series', JSON.stringify(series));
         await client.disconnect();
@@ -18,10 +18,8 @@ async function getSeries(req, res) {
         } else {
         return res.status(404).json({ message: 'No series found' });
         }
-    
     }
-    
-    }
+}
 
 module.exports = {
     getSeries,
