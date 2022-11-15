@@ -1,0 +1,30 @@
+openapi: 3.0.3
+info:
+  title: API NetWish
+  description: API for recommendation films and series, based on the user's preferences in TMDB.
+  contact:
+    email: dev@netWish.com
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000
+    description: Local server
+    variables:
+      protocol:
+        default: http
+        enum:
+          - http
+          - https
+      server:
+        default: localhost
+
+tags:
+  - name: User
+    description: User management
+  - name: films
+    description: Films management
+  - name: series
+    description: Series management
+  - name: recommendations
+    description: Recommendations management
+  - name: favoris
+    description: Favoris management
