@@ -25,7 +25,7 @@ const User = sequelize.define("User", {
         allowNull: false,
     },
     favoris: {
-        type: DataTypes.ARRAY(DataTypes.STRING),
+        type: DataTypes.ARRAY(DataTypes.INTEGER),
         allowNull: true,
     },
     admin : {
