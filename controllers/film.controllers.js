@@ -5,7 +5,6 @@ async function getFilms(req, res) {
   await client.connect();
   const filmsCache = await client.get('films');
   if (filmsCache) {
-    console.log("from cached data")
     await client.disconnect();
     return res.status(200).json(JSON.parse(filmsCache));
   }
