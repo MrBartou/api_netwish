@@ -8,7 +8,7 @@ async function createUser(user) {
     const newUser = {
         firstName: user.firstName,
         lastName: user.lastName,
-        password: user.password,
+        password: hashedPassword,
         email: user.email,
         favoris: user.favoris,
         admin: false,
