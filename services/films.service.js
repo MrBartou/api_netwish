@@ -8,7 +8,6 @@ async function getFilms() {
         headers: {}
     };
     const result = await axios(config);
-    console.log(result.data);
     return result.data.results;
 }
 
