@@ -1,5 +1,6 @@
 const UsersService = require('../services/users.service');
 
+
 async function getAllUsers(req, res) {
   const users = await UsersService.getAllUsers();
 
@@ -36,6 +37,20 @@ async function createUser(req, res) {
             return res.status(400).json({ message: 'User not created' });
         } else {
             return res.status(201).json(user);
+        }
+    }
+}
+
+async function loginUser(req, res) {
+    if (!req.body.email || !req.body.password) {
+        return res.status(400).json({ message: 'email and password are required' });
+    } else {
+        const user = await UsersService.loginUser(req.body.email, req.body.password);
+
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        } else {
+            return res.status(200).json({ message: 'User logged in' });
         }
     }
 }
@@ -78,6 +93,7 @@ module.exports = {
     getAllUsers,
     getUserById,
     createUser,
+    loginUser,
     updateUser,
     deleteUser
 };
