@@ -1,4 +1,6 @@
 const UsersService = require('../services/users.service');
+const db = require("../models/users.models");
+const bcrypt = require("bcrypt");
 
 async function getAllUsers(req, res) {
   const users = await UsersService.getAllUsers();
@@ -40,6 +42,18 @@ async function createUser(req, res) {
     }
 }
 
+async function loginUser(email, password) {
+    const user = await db.findOne({ where: { email } });
+    if (!user) {
+        return false;
+    }
+    const validPassword = await bcrypt.compare(password, user.password);
+    if (!validPassword) {
+        return false;
+    }
+    return user;
+}
+
 async function updateUser(req, res) {
     if (!Number.isInteger(parseInt(req.params.id))) {
         return res.status(400).json({ message: 'Id must be an integer' });
@@ -78,6 +92,7 @@ module.exports = {
     getAllUsers,
     getUserById,
     createUser,
+    loginUser,
     updateUser,
     deleteUser
 };
