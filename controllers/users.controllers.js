@@ -1,5 +1,6 @@
 const UsersService = require('../services/users.service');
 const jwt = require('jsonwebtoken');
+const cookieParser = require('cookie-parser');
 
 
 async function getAllUsers(req, res) {
@@ -51,7 +52,7 @@ async function loginUser(req, res) {
             return res.status(404).json({ message: 'User not found' });
         } else {
             const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: '1h' });
-            console.log(token);
+            res.cookie('token', token, { httpOnly: true });
             return res.status(200).json({ message: 'User logged in' });
         }
     }
