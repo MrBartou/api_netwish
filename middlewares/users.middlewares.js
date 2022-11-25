@@ -1,8 +1,12 @@
 const jwt = require('jsonwebtoken');
+const express = require('express');
+const app = express();
+const cookieParser = require('cookie-parser');
+app.use(cookieParser());
 
 module.exports = (req, res, next) => {
     try {
-        const token = req.headers.authorization.split(' ')[1];
+        const token = req.headers.cookie.split('=')[1];
         const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
         const userId = decodedToken.id;
         req.auth = {
@@ -17,6 +21,3 @@ module.exports = (req, res, next) => {
         res.status(401).json({message: "Invalid request, token is missing !"});
     }
 }
-
-
-
