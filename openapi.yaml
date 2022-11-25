@@ -244,20 +244,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'
-              example:
-                firstName: John
-                lastName: Doe
-                email: 'john.doe@outlook.com'
-                favoris:
-                  type: array
-                  items:
-                    - id: 1
-                      title: 'The Godfather'
-                      type: 'movie'
-                    - id: 2
-                      title: 'The Godfather: Part II'
-                      type: 'movie'
+                $ref: '#/components/schemas/favoris'
         '400':
           description: Bad request
         '401':
@@ -280,12 +267,11 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/User'
+              $ref: '#/components/schemas/favoris'
             example:
               idUser: 1
-              idMedia: 1
-              title: 'The Godfather'
-              type: 'movie'
+              idMovies: 1456
+              idSerie: 115
       responses:
         '201':
           description: Created
@@ -341,7 +327,54 @@ paths:
           description: Not found
         '500':
           description: Internal server error
-
+  /films:
+    get:
+      tags:
+        - films
+      summary: Get all films
+      description: Get all films
+      operationId: getFilms
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/films'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+        '500':
+          description: Internal server error
+  /series:
+    get:
+      tags:
+        - series
+      summary: Get all series
+      description: Get all series
+      operationId: getSeries
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/series'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+        '500':
+          description: Internal server error
 
 components:
   schemas:
@@ -364,12 +397,6 @@ components:
         password:
           type: string
           description: The password of the user
-        favoris:
-          type: array
-          description: The favoris of the user
-          maximum: 10
-          items:
-            type: integer
         admin:
           type: boolean
           description: The admin of the user
@@ -421,3 +448,94 @@ components:
         vote_count:
           type: integer
           description: The vote count of the films
+    films:
+      type: object
+      properties:
+        page:
+          type: integer
+        result:
+          type: object
+          properties:
+            poster_path:
+              type: string
+            adult:
+              type: boolean
+            overview:
+              type: string
+            release_date:
+              type: string
+            genre_ids:
+              type: array
+              items:
+                type: integer
+            id:
+              type: integer
+            original_title:
+              type: string
+            original_language:
+              type: string
+            title:
+              type: string
+            backdrop_path:
+              type: string
+            popularity: 
+              type: number
+            vote_count:
+              type: number
+            video:
+              type: boolean
+            vote_average:
+              type: number
+    series:
+      type: object
+      properties:
+        page:
+          type: integer
+        results:
+          type: object
+          properties:
+            poster_path:
+              type: string
+            popularity:
+              type: number
+            id:
+              type: integer
+            backdrop_path:
+              type: string
+            vote_average:
+              type: number
+            overview:
+              type: string
+            first_air_date:
+              type: string
+            origin_country:
+              type: array
+              items:
+                type: string
+            genre_ids:
+              type: array
+              items:
+                type: integer
+            original_language:
+              type: string
+            vote_count:
+              type: integer
+            name:
+              type: string
+            original_name:
+              type: string
+    favoris:
+      type: object
+      properties:
+        id:
+          type: integer
+        idUser:
+          type: integer
+        idFilm:
+          type: array
+          items:
+            type: integer
+        idSerie:
+          type: array
+          items:
+            type: integer
