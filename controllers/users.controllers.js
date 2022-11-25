@@ -1,6 +1,7 @@
 const UsersService = require('../services/users.service');
-const db = require("../models/users.models");
-const bcrypt = require("bcrypt");
+const jwt = require('jsonwebtoken');
+const cookieParser = require('cookie-parser');
+
 
 async function getAllUsers(req, res) {
   const users = await UsersService.getAllUsers();
@@ -42,16 +43,19 @@ async function createUser(req, res) {
     }
 }
 
-async function loginUser(email, password) {
-    const user = await db.findOne({ where: { email } });
-    if (!user) {
-        return false;
+async function loginUser(req, res) {
+    if (!req.body.email || !req.body.password) {
+        return res.status(400).json({ message: 'email and password are required' });
+    } else {
+        const user = await UsersService.loginUser(req.body.email, req.body.password);
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        } else {
+            const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+            res.cookie('token', token, { httpOnly: true });
+            return res.status(200).json({ message: 'User logged in' });
+        }
     }
-    const validPassword = await bcrypt.compare(password, user.password);
-    if (!validPassword) {
-        return false;
-    }
-    return user;
 }
 
 async function updateUser(req, res) {
