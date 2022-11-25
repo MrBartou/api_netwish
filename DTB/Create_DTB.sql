@@ -13,3 +13,10 @@ CREATE TABLE Users (
     lastname VARCHAR(255) NOT NULL,
     admin BOOLEAN NOT NULL DEFAULT FALSE,
 );
+
+CREATE TABLE Favoris (
+    idUser INT NOT NULL PRIMARY KEY,
+    idMedia INT NOT NULL,
+    title VARCHAR(255) NOT NULL,
+    type VARCHAR(255) NOT NULL,
+)
