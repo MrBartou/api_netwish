@@ -17,6 +17,18 @@ async function createUser(user) {
     return db.create(newUser);
 }
 
+async function loginUser(email, password) {
+    const user = await db.findOne({ where: { email } });
+    if (!user) {
+        return null;
+    }
+    const validPassword = await bcrypt.compare(password, user.password);
+    if (!validPassword) {
+        return null;
+    }
+    return user;
+}
+
 function getAllUsers() {
     return db.findAll();
 }
@@ -35,6 +47,7 @@ function deleteUser(id) {
 
 module.exports = {
     createUser,
+    loginUser,
     getAllUsers,
     getUserById,
     updateUser,
