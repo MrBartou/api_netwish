@@ -292,11 +292,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/favoris'
-              example:
-                idUser: 1
-                idMedia: 1
-                title: 'The Godfather'
-                type: 'movie'
         '400':
           description: Bad request
         '401':
@@ -361,11 +356,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/favoris'
-              example:
-                idUser: 1
-                idMedia: 1
-                title: 'The Godfather'
-                type: 'movie'
         '400':
           description: Bad request
         '401':
@@ -527,7 +517,7 @@ components:
               type: string
             backdrop_path:
               type: string
-            popularity: 
+            popularity:
               type: number
             vote_count:
               type: number
@@ -574,17 +564,15 @@ components:
             original_name:
               type: string
     favoris:
-      type: object
-      properties:
-        idUser:
-          type: integer
-        favorite:
-          type: array
-          items:
-            properties:
-              idMedia:
-                type: integer
-              title:
-                type: string
-              type:
-                type: string
+      type: array
+      items:
+        type: object
+        properties:
+          idUser:
+            type: integer
+          idMedia:
+            type: integer
+          title:
+            type: string
+          type:
+            type: string
