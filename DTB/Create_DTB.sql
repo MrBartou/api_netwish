@@ -11,11 +11,12 @@ CREATE TABLE Users (
     password VARCHAR(255) NOT NULL,
     firstname VARCHAR(255) NOT NULL,
     lastname VARCHAR(255) NOT NULL,
+    admin BOOLEAN NOT NULL DEFAULT FALSE,
 );
 
-
 CREATE TABLE Favoris (
-    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    idUser INT NOT NULL,
-    idMovie INT NOT NULL,
+    idUser INT NOT NULL PRIMARY KEY,
+    idMedia INT NOT NULL,
+    title VARCHAR(255) NOT NULL,
+    type VARCHAR(255) NOT NULL,
 )

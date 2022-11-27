@@ -1,10 +1,9 @@
 const router = require('express').Router();
-const { favorisController } = require ( '../controllers/favoris.controllers' );
+const favorisController = require ( '../controllers/favoris.controllers' );
 
-router.get('/', favorisController.getFavoris);
 router.get('/:id', favorisController.getFavorisById);
 router.post('/', favorisController.addFavoris);
-router.put('/:id', favorisController.updateFavoris);
-router.delete('/:id', favorisController.deleteFavoris);
+router.put('/', favorisController.updateFavoris);
+router.delete('/', favorisController.deleteFavoris);
 
 module.exports = router;

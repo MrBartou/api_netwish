@@ -10,28 +10,36 @@ const User = sequelize.define("User", {
     },
     firstName: {
         type: DataTypes.STRING,
-        allowNull: false,
+        required: false,
     },
     lastName: {
         type: DataTypes.STRING,
-        allowNull: false,
+        required: true,
     },
     email: {
         type: DataTypes.STRING,
-        allowNull: false,
+        required: true,
     },
     password: {
         type: DataTypes.STRING,
-        allowNull: false,
+        required: true,
     },
+    // var favoris = [{id: 1, title: "test", type: "movie"}, {id: 2, title: "test2", type: "movie"}];
     favoris: {
-        type: DataTypes.ARRAY(DataTypes.STRING),
-        allowNull: true,
+        type: DataTypes.STRING,
+        required: false,
     },
     admin : {
         type: DataTypes.BOOLEAN,
-        allowNull: false,
+        defaultValue: false,
+        required: true,
     }
+});
+
+sequelize.sync().then(() => {
+    console.log('User table created successfully!');
+}).catch((error) => {
+    console.error('Unable to create table : ', error);
 });
 
 module.exports = User;
