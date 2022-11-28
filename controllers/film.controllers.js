@@ -1,6 +1,5 @@
 const filmsServices = require('../services/films.service');
 const client = require('../redis');
-client.connect();
 
 async function getFilms(req, res) {
 

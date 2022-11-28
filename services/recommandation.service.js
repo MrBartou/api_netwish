@@ -1,4 +1,3 @@
-const db = require('../models/users.models');
 const axios = require('axios');
 
 async function getRecommandation() {

@@ -2,8 +2,8 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 const swaggerUi = require('swagger-ui-express');
-YAML = require('yamljs')
-const swaggerFile = YAML.load('./openapi.yaml')
+const YAML = require('yamljs');
+const swaggerDocument = YAML.load('./openapi.yaml');
 const OpenApiValidator = require('express-openapi-validator');
 
 
@@ -15,14 +15,14 @@ const seriesRoutes = require("./routes/series.router");
 
 app.use(bodyParser.json());
 
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
 app.use(
     OpenApiValidator.middleware({
       apiSpec: './openapi.yaml',
       validateRequests: true,
     }),
 );
-
-app.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerFile))
 
 app.use("/users", usersRoutes);
 app.use("/favoris", favorisRoutes);
