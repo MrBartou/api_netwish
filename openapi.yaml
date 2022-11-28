@@ -32,6 +32,8 @@ tags:
 paths:
   /users:
     get:
+      security:
+        - bearerAuth: []
       tags:
         - User
       summary: Get all users
@@ -50,6 +52,7 @@ paths:
           description: Bad request
         '401':
           description: Unauthorized
+          $ref: '#/components/schemas/UnauthorizedError'
         '403':
           description: Forbidden
         '404':
@@ -97,6 +100,8 @@ paths:
           description: Internal server error
   /users/{id}:
     get:
+      security:
+        - bearerAuth: []
       tags:
         - User
       summary: Get a user
@@ -124,6 +129,7 @@ paths:
           description: Bad request
         '401':
           description: Unauthorized
+          $ref: '#/components/schemas/UnauthorizedError'
         '403':
           description: Forbidden
         '404':
@@ -131,6 +137,8 @@ paths:
         '500':
           description: Internal server error
     put:
+      security:
+        - bearerAuth: []
       tags:
         - User
       summary: Update a user
@@ -169,6 +177,7 @@ paths:
           description: Bad request
         '401':
           description: Unauthorized
+          $ref: '#/components/schemas/UnauthorizedError'
         '403':
           description: Forbidden
         '404':
@@ -176,6 +185,8 @@ paths:
         '500':
           description: Internal server error
     delete:
+      security:
+        - bearerAuth: []
       tags:
         - User
       summary: Delete a user
@@ -199,6 +210,7 @@ paths:
           description: Bad request
         '401':
           description: Unauthorized
+          $ref: '#/components/schemas/UnauthorizedError'
         '403':
           description: Forbidden
         '404':
@@ -241,6 +253,8 @@ paths:
           description: Internal server error
   /recommandations:
     get:
+      security:
+        - bearerAuth: []
       tags:
         - recommendations
       summary: Get all recommendations
@@ -259,6 +273,7 @@ paths:
           description: Bad request
         '401':
           description: Unauthorized
+          $ref: '#/components/schemas/UnauthorizedError'
         '403':
           description: Forbidden
         '404':
@@ -267,6 +282,8 @@ paths:
           description: Internal server error
   /favoris:
     post:
+      security:
+        - bearerAuth: []
       tags:
         - favoris
       summary: Create a favoris
@@ -296,6 +313,7 @@ paths:
           description: Bad request
         '401':
           description: Unauthorized
+          $ref: '#/components/schemas/UnauthorizedError'
         '403':
           description: Forbidden
         '404':
@@ -303,6 +321,8 @@ paths:
         '500':
           description: Internal server error
     delete:
+      security:
+        - bearerAuth: []
       tags:
         - favoris
       summary: Delete a favoris
@@ -329,6 +349,7 @@ paths:
           description: Bad request
         '401':
           description: Unauthorized
+          $ref: '#/components/schemas/UnauthorizedError'
         '403':
           description: Forbidden
         '404':
@@ -337,6 +358,8 @@ paths:
           description: Internal server error
   /favoris/{id}:
     get:
+      security:
+        - bearerAuth: []
       tags:
         - favoris
       summary: Get user favoris
@@ -360,6 +383,7 @@ paths:
           description: Bad request
         '401':
           description: Unauthorized
+          $ref: '#/components/schemas/UnauthorizedError'
         '403':
           description: Forbidden
         '404':
@@ -368,6 +392,8 @@ paths:
           description: Internal server error
   /films:
     get:
+      security:
+        - bearerAuth: []
       tags:
         - films
       summary: Get all films
@@ -384,6 +410,7 @@ paths:
           description: Bad request
         '401':
           description: Unauthorized
+          $ref: '#/components/schemas/UnauthorizedError'
         '403':
           description: Forbidden
         '404':
@@ -392,6 +419,8 @@ paths:
           description: Internal server error
   /series:
     get:
+      security:
+        - bearerAuth: []
       tags:
         - series
       summary: Get all series
@@ -408,6 +437,7 @@ paths:
           description: Bad request
         '401':
           description: Unauthorized
+          $ref: '#/components/schemas/UnauthorizedError'
         '403':
           description: Forbidden
         '404':
@@ -428,6 +458,7 @@ paths:
           description: Bad request
         '401':
           description: Unauthorized
+          $ref: '#/components/schemas/UnauthorizedError'
         '403':
           description: Forbidden
         '404':
@@ -436,6 +467,11 @@ paths:
           description: Internal server error
 
 components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
   schemas:
     User:
       type: object
@@ -596,3 +632,5 @@ components:
             type: string
           type:
             type: string
+    UnauthorizedError:
+      description: Access token is missing or invalid

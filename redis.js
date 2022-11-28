@@ -1,8 +1,11 @@
 const redis = require('redis');
 
 const client = redis.createClient({
-    url: "redis://redis:6379",
+    url: process.env.REDIS_URL,
+    port: process.env.REDIS_PORT,
+
     legacyMode: true,
 });
+
 
 module.exports = client;
