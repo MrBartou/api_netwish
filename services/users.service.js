@@ -37,6 +37,10 @@ function getUserById(id) {
     return db.findByPk(id)
 }
 
+function getUserByEmail(email) {
+    return db.findOne({ where: { email } });
+}
+
 function updateUser(id, user) {
     db.update(user, { where: { id } });
     return db.findByPk(id);
@@ -51,6 +55,7 @@ module.exports = {
     loginUser,
     getAllUsers,
     getUserById,
+    getUserByEmail,
     updateUser,
     deleteUser
 };
