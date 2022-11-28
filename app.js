@@ -10,7 +10,7 @@ const OpenApiValidator = require('express-openapi-validator');
 const usersRoutes = require("./routes/users.router");
 const favorisRoutes = require("./routes/favoris.router");
 const filmsRoutes = require("./routes/films.router");
-const recommandationsRoutes = require("./routes/recommandations.router");
+const recommandationsRoutes = require("./routes/recommandation.router");
 const seriesRoutes = require("./routes/series.router");
 
 app.use(bodyParser.json());
@@ -18,7 +18,7 @@ app.use(bodyParser.json());
 app.use(
     OpenApiValidator.middleware({
       apiSpec: './openapi.yaml',
-      validateRequests: true,
+      validateRequests: false,
     }),
 );
 

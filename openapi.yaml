@@ -235,11 +235,11 @@ paths:
           description: Unauthorized
         '403':
           description: Forbidden
-        '404': 
+        '404':
           description: Not found
         '500':
           description: Internal server error
-  /recommendations:
+  /recommandations:
     get:
       tags:
         - recommendations
@@ -404,6 +404,26 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/series'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+        '500':
+          description: Internal server error
+  /doc:
+    get:
+      tags:
+        - doc
+      summary: Get doc
+      description: Get doc
+      operationId: getDoc
+      responses:
+        '200':
+          description: OK
         '400':
           description: Bad request
         '401':
