@@ -13,7 +13,6 @@ async function createUser(user) {
         favoris: user.favoris,
         admin: false,
     };
-    console.log(newUser);
     return db.create(newUser);
 }
 
