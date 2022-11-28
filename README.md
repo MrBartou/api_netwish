@@ -61,6 +61,12 @@ The following tools were used in this project:
 
 Before starting :checkered_flag:, you need to have [Git](https://git-scm.com), [Node](https://nodejs.org/en/)  and [Redis](https://redis.io/) installed.
 
+## :checkered_flag: Information ##
+
+You can know all routes of the API with the documentation in the address : http://localhost:3000/doc/
+
+Before you use the API, you need to create a user with the route : http://localhost:3000/users/ and login with the route : http://localhost:3000/users/ login/
+
 ## :checkered_flag: Starting whithout docker ##
 
 ```bash
@@ -79,6 +85,10 @@ $ npm run dev
 # The server will initialize in the <http://localhost:3000>
 ```
 
+## :checkered_flag: Note for docker ##
+Before you start the projet, you need to stop mysql and redis server on your computer. Because they bind the port 3306 and 6379.
+
+You don't need to install the database, it's already in the docker-compose.yml file.
 ## :checkered_flag: Starting with docker ##
 
 ```bash
@@ -96,7 +106,6 @@ $ docker-compose up
 ## :memo: License ##
 
 This project is under license from MIT. For more details, see the [LICENSE](LICENSE.md) file.
-
 
 Made with :heart: by <a href="" target="_blank">Philippe VILARINHO, Maceo BASSE, Anthony DENIN</a>
 
