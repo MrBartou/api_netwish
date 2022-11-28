@@ -28,6 +28,8 @@ tags:
     description: Recommendations management
   - name: favoris
     description: Favoris management
+  - name: api-docs
+    description: API documentation
 
 paths:
   /users:
@@ -445,27 +447,16 @@ paths:
           description: Not found
         '500':
           description: Internal server error
-  /doc:
+  /api-docs:
     get:
       tags:
-        - doc
+        - api-docs
       summary: Get doc
       description: Get doc
       operationId: getDoc
       responses:
         '200':
           description: OK
-        '400':
-          description: Bad request
-        '401':
-          description: Unauthorized
-          $ref: '#/components/schemas/UnauthorizedError'
-        '403':
-          description: Forbidden
-        '404':
-          description: Not found
-        '500':
-          description: Internal server error
 
 components:
   securitySchemes:

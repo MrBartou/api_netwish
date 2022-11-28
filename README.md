@@ -63,7 +63,7 @@ Before starting :checkered_flag:, you need to have [Git](https://git-scm.com), [
 
 ## :notebook: Note for API ##
 
-You can know all routes of the API with the documentation in the address : http://localhost:3000/doc/
+You can know all routes of the API with the documentation in the address : http://localhost:3000/api-docs/
 
 Before you start the projet, you need to stop mysql and redis server on your computer. Because they bind the port 3306 and 6379.
 
