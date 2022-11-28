@@ -2,6 +2,7 @@ const filmsServices = require('../services/films.service');
 const client = require('../redis');
 
 async function getFilms(req, res) {
+  client.connect();
 
   // Check if the key exists in the cache
   client.get('films', async (err, data) => {
@@ -9,6 +10,7 @@ async function getFilms(req, res) {
 
     // If the key exists in the cache, return the data
     if (data !== null) {
+      client.disconnect();
       return res.status(200).json({
         success: true,
         data: JSON.parse(data),
@@ -19,6 +21,7 @@ async function getFilms(req, res) {
       if (films) {
         // Store the data in the cache
         client.set('films', JSON.stringify(films));
+        client.disconnect();
         return res.status(200).json({
           success: true,
           data: films,

@@ -2,6 +2,7 @@ const seriesServices = require('../services/series.service');
 const client = require('../redis');
 
 async function getSeries(req, res) {
+    client.connect();
 
     // Check if the key exists in the cache
     client.get('series', async (err, data) => {
@@ -9,6 +10,7 @@ async function getSeries(req, res) {
 
         // If the key exists in the cache, return the data
         if (data !== null) {
+            client.disconnect();
             return res.status(200).json({
                 success: true,
                 data: JSON.parse(data),
@@ -19,6 +21,7 @@ async function getSeries(req, res) {
             if (series) {
                 // Store the data in the cache
                 client.set('series', JSON.stringify(series));
+                client.disconnect();
                 return res.status(200).json({
                     success: true,
                     data: series,

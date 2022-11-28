@@ -5,6 +5,6 @@ const client = redis.createClient({
     port: process.env.REDIS_PORT,
     legacyMode: true,
 });
-client.connect();
+
 
 module.exports = client;
