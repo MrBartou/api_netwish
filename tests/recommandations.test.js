@@ -28,4 +28,10 @@ describe("GET /recommandations", () => {
             .set("Cookie", token);
         expect(res.statusCode).toEqual(200);
     });
+
+    test("should return 401", async () => {
+        const res = await request(app)
+            .get("/recommandations");
+        expect(res.statusCode).toEqual(401);
+    });
 });

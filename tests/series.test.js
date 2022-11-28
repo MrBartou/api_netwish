@@ -22,11 +22,17 @@ beforeAll(async () => {
 });
 
 describe("GET /series", () => {
-    test.only("should return 200", async () => {
+    test("should return 200", async () => {
         const res = await request(app)
             .get("/series")
             .set("Authorization", `Bearer ${token}`)
             .set("Cookie", token);
         expect(res.statusCode).toEqual(200);
+    });
+
+    test("should return 401", async () => {
+        const res = await request(app)
+            .get("/series");
+        expect(res.statusCode).toEqual(401);
     });
 });
