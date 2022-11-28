@@ -30,7 +30,7 @@ async function getUserById(req, res) {
 }
 
 async function createUser(req, res) {
-    if (!req.body.firstName || !req.body.firstName || !req.body.email || !req.body.password) {
+    if (!req.body.firstName || !req.body.lastName || !req.body.email || !req.body.password) {
         return res.status(400).json({ message: 'firstName, lastName, email and password are required' });
     } else {
         const user = await UsersService.createUser(req.body);

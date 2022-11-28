@@ -38,7 +38,8 @@ function getUserById(id) {
 }
 
 function updateUser(id, user) {
-    return db.update(user, { where: { id } });
+    db.update(user, { where: { id } });
+    return db.findByPk(id);
 }
 
 function deleteUser(id) {
