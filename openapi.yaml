@@ -612,17 +612,15 @@ components:
             original_name:
               type: string
     favoris:
-      type: array
-      items:
-        type: object
-        properties:
-          idUser:
-            type: integer
-          idMedia:
-            type: integer
-          title:
-            type: string
-          type:
-            type: string
+      type: object
+      properties:
+        idUser:
+          type: integer
+        idMedia:
+          type: integer
+        title:
+          type: string
+        type:
+          type: string
     UnauthorizedError:
       description: Access token is missing or invalid
