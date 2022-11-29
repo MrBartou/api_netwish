@@ -301,10 +301,9 @@ paths:
               $ref: '#/components/schemas/favoris'
             example:
               idUser: 1
-              favorite:
-                idMedia: 124
-                title: 'The Lord of the Rings: The Fellowship of the Ring'
-                type: 'movie'
+              idMedia: 124
+              title: 'The Lord of the Rings: The Fellowship of the Ring'
+              type: 'movie'
       responses:
         '201':
           description: Created
@@ -340,7 +339,7 @@ paths:
               $ref: '#/components/schemas/favoris'
             example:
               idUser: 1
-              idMedia: 1
+              idMedia: 124
       responses:
         '200':
           description: OK

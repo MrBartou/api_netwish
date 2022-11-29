@@ -24,7 +24,6 @@ const User = sequelize.define("User", {
         type: DataTypes.STRING,
         required: true,
     },
-    // var favoris = [{id: 1, title: "test", type: "movie"}, {id: 2, title: "test2", type: "movie"}];
     favoris: {
         type: DataTypes.STRING,
         required: false,
