@@ -1,5 +1,4 @@
 const FavorisService = require('../services/favoris.service');
-const db = require("../models/favoris.models");
 
 async function getFavorisById(req, res) {
     if (!Number.isInteger(parseInt(req.params.id))) {
@@ -48,17 +47,17 @@ async function updateFavoris(req, res) {
 }
 
 async function deleteFavoris(req, res) {
-    if (!Number.isInteger(parseInt(req.params.id))) {
-        return res.status(400).json({ message: 'Id must be an integer' });
-    } else if (req.params.id < 0) {
+    if (!req.body.idUser || !req.body.idMedia) {
+        return res.status(400).json({ message: 'idUser and idMedia is required' });
+    } else if (req.body.idUser < 0 || req.body.idMedia < 0) {
         return res.status(400).json({ message: 'Id must be a positive integer' });
     } else {
-        const favoris = await FavorisService.deleteFavoris(req.params.id);
+        const favoris = await FavorisService.deleteFavoris(req.body.idUser, req.body.idMedia);
 
         if (!favoris) {
             return res.status(400).json({ message: 'Favoris not deleted' });
         } else {
-            return res.status(200).json(favoris);
+            return res.status(200).json({ message: 'Favoris deleted' });
         }
     }
 }
