@@ -17,8 +17,6 @@ beforeAll(async () => {
     // token = cookie without the "token=" part (cookie.split("=")[1]) and without the "; HttpOnly" part (cookie.split("=")[1].split(";")[0])
     token = cookie[0].split(";")[0];
     bearerToken = "Bearer " + cookie[0].split("=")[1].split(";")[0];
-    console.log(bearerToken);
-    console.log(token);
 });
 describe("GET /recommandations", () => {
     test("should return 200", async () => {

@@ -1,6 +1,5 @@
 const UsersService = require('../services/users.service');
 const jwt = require('jsonwebtoken');
-const cookieParser = require('cookie-parser');
 
 
 async function getAllUsers(req, res) {
@@ -32,7 +31,6 @@ async function getUserById(req, res) {
 async function createUser(req, res) {
     if (!req.body.firstName || !req.body.lastName || !req.body.email || !req.body.password) {
         return res.status(400).json({ message: 'firstName, lastName, email and password are required' });
-    // verify if email is already in use
     } else if (await UsersService.getUserByEmail(req.body.email)) {
         return res.status(400).json({ message: 'Email already in use' });
     } else {
@@ -90,7 +88,7 @@ async function deleteUser(req, res) {
         if (!user) {
             return res.status(404).json({ message: 'User not found' });
         } else {
-            return res.status(200).json(user);
+            return res.status(200).json({ message: 'User deleted' });
         }
     }
 }

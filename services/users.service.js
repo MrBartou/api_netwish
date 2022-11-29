@@ -40,8 +40,12 @@ function getUserByEmail(email) {
     return db.findOne({ where: { email } });
 }
 
-function updateUser(id, user) {
-    db.update(user, { where: { id } });
+async function updateUser(id, user) {
+    if (user.password) {
+        const hashedPassword = await bcrypt.hash(user.password, SALT_ROUNDS);
+        user.password = hashedPassword;
+    }
+    await db.update(user, { where: { id } });
     return db.findByPk(id);
 }
 
