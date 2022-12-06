@@ -98,7 +98,10 @@ This project is under license from MIT. For more details, see the [LICENSE](LICE
 
 ## :technologist: Author ##
 
-Made with :heart: by <a href="" target="_blank">Philippe VILARINHO, Maceo BASSE, Anthony DENIN</a>
+Made with :heart: by
+<a href="https://github.com/MaceoBasse" target="_blank"> => Philippe VILARINHO - Tifiloutube</a>
+<a href="https://github.com/tifiloutube" target="_blank"> => Maceo BASSE - MasseoBasse</a>
+<a href="https://github.com/MrBartou" target="_blank"> => Anthony DENIN - MrBartou</a>
 
 &#xa0;
 
